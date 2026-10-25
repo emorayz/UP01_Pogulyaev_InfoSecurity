@@ -1,0 +1,46 @@
+<Page x:Class="InfoSecurity.Pages.AuthPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Авторизация">
+    <Grid Background="{DynamicResource BackgroundBrush}">
+        <Border Width="520" Padding="28" VerticalAlignment="Center" HorizontalAlignment="Center"
+                Background="{DynamicResource SecondBrush}" BorderBrush="{DynamicResource AccentBrush}" BorderThickness="1">
+            <StackPanel>
+                <TextBlock Text="Система управления информационной безопасностью"
+                           FontSize="20" FontWeight="Bold" TextAlignment="Center" Margin="0,0,0,8"/>
+                <TextBlock Text="Войдите в учётную запись для продолжения"
+                           TextAlignment="Center" Foreground="{DynamicResource HintBrush}" Margin="0,0,0,18"/>
+                <StackPanel x:Name="LoginPanel">
+                    <Label Content="Логин"/>
+                    <TextBox x:Name="TextBoxLogin" Tag="Введите логин" Style="{StaticResource HintTextBoxStyle}"
+                             ToolTip="Логин: английские буквы и цифры" MaxLength="50"/>
+                    <Label Content="Пароль"/>
+                    <PasswordBox x:Name="PasswordBox" Tag="Введите пароль" Style="{StaticResource HintPasswordBoxStyle}"
+                                 ToolTip="Пароль: не менее 6 английских букв и цифр"/>
+                    <WrapPanel HorizontalAlignment="Center" Margin="0,14,0,0">
+                        <Button x:Name="ButtonEnter" Content="Вход" ToolTip="Войти в систему" Click="ButtonEnter_OnClick" IsDefault="True"/>
+                        <Button x:Name="ButtonReg" Content="Регистрация" ToolTip="Создать учётную запись" Click="ButtonReg_Click"/>
+                    </WrapPanel>
+                    <Button x:Name="ButtonChangePassword" Content="Смена пароля" HorizontalAlignment="Center"
+                            ToolTip="Изменить пароль существующей учётной записи" Click="ButtonChangePassword_Click"/>
+                </StackPanel>
+                <StackPanel x:Name="CaptchaPanel" Visibility="Collapsed">
+                    <TextBlock Text="После трёх неверных попыток требуется проверка"
+                               Foreground="{DynamicResource CaptchaBrush}" TextAlignment="Center"/>
+                    <Label Content="Капча" HorizontalAlignment="Center"/>
+                    <TextBox x:Name="CaptchaText" IsReadOnly="True" FontSize="24" FontWeight="Bold" FontStyle="Italic"
+                             Foreground="{DynamicResource CaptchaBrush}" HorizontalContentAlignment="Center"
+                             CommandManager.PreviewExecuted="Captcha_PreviewExecuted" ContextMenu="{x:Null}"
+                             ToolTip="Введите эти символы в поле ниже"/>
+                    <TextBox x:Name="CaptchaInput" Tag="Введите капчу" Style="{StaticResource HintTextBoxStyle}"
+                             MaxLength="6" CommandManager.PreviewExecuted="Captcha_PreviewExecuted" ContextMenu="{x:Null}"
+                             ToolTip="Капча вводится вручную, вставка запрещена"/>
+                    <WrapPanel HorizontalAlignment="Center">
+                        <Button Content="Подтвердить" ToolTip="Проверить капчу" Click="SubmitCaptcha_Click"/>
+                        <Button Content="Обновить" ToolTip="Сформировать новый код" Click="RefreshCaptcha_Click"/>
+                    </WrapPanel>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

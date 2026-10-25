@@ -1,0 +1,30 @@
+<Page x:Class="InfoSecurity.Pages.ChangePassPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Смена пароля">
+    <Grid Background="{DynamicResource BackgroundBrush}">
+        <Border Width="520" Padding="28" HorizontalAlignment="Center" VerticalAlignment="Center"
+                Background="{DynamicResource SecondBrush}" BorderBrush="{DynamicResource AccentBrush}" BorderThickness="1">
+            <StackPanel>
+                <TextBlock Text="Смена пароля" FontSize="22" FontWeight="Bold"
+                           TextAlignment="Center" Margin="0,0,0,16"/>
+                <Label Content="Логин"/>
+                <TextBox x:Name="TxtLogin" Tag="Введите логин" Style="{StaticResource HintTextBoxStyle}"
+                         ToolTip="Логин существующей учётной записи"/>
+                <Label Content="Текущий пароль"/>
+                <PasswordBox x:Name="CurrentPassword" Tag="Введите текущий пароль"
+                             Style="{StaticResource HintPasswordBoxStyle}" ToolTip="Пароль, используемый сейчас"/>
+                <Label Content="Новый пароль"/>
+                <PasswordBox x:Name="NewPassword" Tag="Не менее 6 символов и одна цифра"
+                             Style="{StaticResource HintPasswordBoxStyle}" ToolTip="Только английские буквы и цифры"/>
+                <Label Content="Подтверждение нового пароля"/>
+                <PasswordBox x:Name="ConfirmPassword" Tag="Повторите новый пароль"
+                             Style="{StaticResource HintPasswordBoxStyle}" ToolTip="Значения должны совпадать"/>
+                <WrapPanel HorizontalAlignment="Center" Margin="0,14,0,0">
+                    <Button Content="Сохранить" ToolTip="Проверить и сохранить новый пароль" Click="Save_Click"/>
+                    <Button Content="Отмена" ToolTip="Вернуться к авторизации" Click="Cancel_Click"/>
+                </WrapPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>
