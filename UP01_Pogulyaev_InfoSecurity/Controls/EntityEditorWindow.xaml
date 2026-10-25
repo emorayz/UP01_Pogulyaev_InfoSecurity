@@ -1,0 +1,22 @@
+<Window x:Class="InfoSecurity.Controls.EntityEditorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Редактирование записи" Height="650" Width="650" MinHeight="450" MinWidth="560"
+        WindowStartupLocation="CenterOwner" ResizeMode="CanResize"
+        Background="{DynamicResource BackgroundBrush}">
+    <Grid Margin="14">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="HeaderText" FontSize="20" FontWeight="Bold" Margin="5"/>
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <Grid x:Name="FieldsGrid" Margin="4"/>
+        </ScrollViewer>
+        <WrapPanel Grid.Row="2" HorizontalAlignment="Center">
+            <Button Content="Сохранить" ToolTip="Проверить данные и сохранить запись" Click="Save_Click" IsDefault="True"/>
+            <Button Content="Отмена" ToolTip="Закрыть форму без сохранения" Click="Cancel_Click" IsCancel="True"/>
+        </WrapPanel>
+    </Grid>
+</Window>
