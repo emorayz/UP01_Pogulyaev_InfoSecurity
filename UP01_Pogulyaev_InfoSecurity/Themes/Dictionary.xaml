@@ -1,0 +1,15 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="CommonStyles.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    <SolidColorBrush x:Key="BackgroundBrush" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="SecondBrush" Color="#F3F3F3"/>
+    <SolidColorBrush x:Key="AccentBrush" Color="#0198AF"/>
+    <SolidColorBrush x:Key="HeaderBrush" Color="#233E76"/>
+    <SolidColorBrush x:Key="TextBrush" Color="#193D57"/>
+    <SolidColorBrush x:Key="HeaderTextBrush" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="HintBrush" Color="#9197A3"/>
+    <SolidColorBrush x:Key="CaptchaBrush" Color="#DD4B42"/>
+    <FontFamily x:Key="MainFont">Open Sans, Segoe UI</FontFamily>
+</ResourceDictionary>
