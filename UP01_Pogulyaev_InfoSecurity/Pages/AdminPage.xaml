@@ -1,0 +1,26 @@
+<Page x:Class="InfoSecurity.Pages.AdminPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Панель администратора">
+    <Grid Background="{DynamicResource BackgroundBrush}">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Управление информационной безопасностью" FontSize="23" FontWeight="Bold"
+                       TextAlignment="Center" Margin="0,0,0,4"/>
+            <TextBlock x:Name="AdminWelcome" TextAlignment="Center" Foreground="{DynamicResource HintBrush}" Margin="0,0,0,14"/>
+            <WrapPanel Width="790" HorizontalAlignment="Center">
+                <Button Content="Пользователи" ToolTip="Просмотр и редактирование учётных записей" Click="Users_Click"/>
+                <Button Content="Подразделения" ToolTip="Структура организации" Click="Departments_Click"/>
+                <Button Content="Сотрудники" ToolTip="Сотрудники и их подразделения" Click="Employees_Click"/>
+                <Button Content="Активы" ToolTip="Информационные активы организации" Click="Assets_Click"/>
+                <Button Content="Инциденты" ToolTip="Учёт инцидентов безопасности" Click="Incidents_Click"/>
+                <Button Content="Оценки рисков" ToolTip="Угрозы, уязвимости и меры реагирования" Click="Risks_Click"/>
+                <Button Content="Политики" ToolTip="Внутренние политики безопасности" Click="Policies_Click"/>
+                <Button Content="Журнал аудита" ToolTip="События и действия пользователей" Click="Audit_Click"/>
+                <Button Content="Диаграммы" ToolTip="Статистика инцидентов по статусам" Click="Dashboard_Click"/>
+                <Button Content="Экспорт в Word" ToolTip="Сформировать отчёт .docx" Click="ExportWord_Click"/>
+                <Button Content="Экспорт в PDF" ToolTip="Сформировать отчёт .pdf" Click="ExportPdf_Click"/>
+                <Button Content="Экспорт в Excel" ToolTip="Сформировать таблицу .xlsx" Click="ExportExcel_Click"/>
+            </WrapPanel>
+        </StackPanel>
+    </Grid>
+</Page>

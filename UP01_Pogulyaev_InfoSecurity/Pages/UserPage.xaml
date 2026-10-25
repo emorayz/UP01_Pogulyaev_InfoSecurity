@@ -1,0 +1,43 @@
+<Page x:Class="InfoSecurity.Pages.UserPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Инциденты безопасности">
+    <Grid Margin="12" Background="{DynamicResource BackgroundBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <TextBlock x:Name="WelcomeText" FontSize="20" FontWeight="Bold" Margin="5"/>
+            <TextBlock Text="Просмотр инцидентов, поиск по описанию, фильтрация по статусу и сортировка данных."
+                       Foreground="{DynamicResource HintBrush}" Margin="5"/>
+        </StackPanel>
+        <WrapPanel Grid.Row="1" HorizontalAlignment="Center">
+            <TextBox x:Name="SearchBox" Tag="Поиск по названию или описанию" Width="260"
+                     Style="{StaticResource HintTextBoxStyle}" ToolTip="Поиск выполняется без учёта регистра"
+                     TextChanged="Filter_Changed"/>
+            <ComboBox x:Name="StatusFilter" Width="190" ToolTip="Фильтр по статусу" SelectionChanged="Filter_Changed"/>
+            <ComboBox x:Name="SortBox" Width="210" SelectedIndex="0" ToolTip="Порядок сортировки" SelectionChanged="Filter_Changed">
+                <ComboBoxItem Content="Сначала новые"/>
+                <ComboBoxItem Content="Сначала старые"/>
+                <ComboBoxItem Content="По убыванию серьёзности"/>
+                <ComboBoxItem Content="По названию"/>
+            </ComboBox>
+            <Button Content="Сбросить" ToolTip="Очистить поиск, фильтр и сортировку" Click="ClearFilters_Click"/>
+            <Button Content="Обновить" ToolTip="Загрузить данные из базы повторно" Click="Refresh_Click"/>
+        </WrapPanel>
+        <DataGrid x:Name="IncidentsGrid" Grid.Row="2" ToolTip="Данные доступны только для просмотра">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding ID}" Width="45"/>
+                <DataGridTextColumn Header="Инцидент" Binding="{Binding Title}" Width="180"/>
+                <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="*"/>
+                <DataGridTextColumn Header="Дата" Binding="{Binding IncidentDate, StringFormat=dd.MM.yyyy HH:mm}" Width="130"/>
+                <DataGridTextColumn Header="Серьёзность" Binding="{Binding Severity}" Width="95"/>
+                <DataGridTextColumn Header="Статус" Binding="{Binding Status}" Width="95"/>
+                <DataGridTextColumn Header="Актив" Binding="{Binding AssetName}" Width="150"/>
+                <DataGridTextColumn Header="Ответственный" Binding="{Binding AssignedUser}" Width="160"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>
